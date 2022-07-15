@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 import models
 from database import engine
-from routers import todos, address, auth, users
+from routers import todos, auth, users
 from starlette import status
 from starlette.responses import RedirectResponse
 from starlette.staticfiles import StaticFiles
@@ -17,7 +17,6 @@ app.mount('/static', StaticFiles(directory='static'), name='static')
 app.include_router(auth.router)
 app.include_router(todos.router)
 app.include_router(users.router)
-app.include_router(address.router)
 
 
 @app.get('/')
